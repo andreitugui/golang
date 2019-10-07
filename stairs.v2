@@ -1,0 +1,13 @@
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	n := 10
+	for i := 1; i <= n; i++ {
+		fmt.Printf("%v"+"%v"+"\n", strings.Repeat(" ", n-i), strings.Repeat("#", i))
+	}
+}
