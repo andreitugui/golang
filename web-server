@@ -1,0 +1,25 @@
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+	"sync"
+)
+
+func main() {
+	var i int
+	var mutex = &sync.Mutex{}
+	http.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintln(w, "pong")
+		mutex.Lock()
+		i++
+		mutex.Unlock()
+	})
+	http.HandleFunc("/counter", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintln(w, i)
+
+	})
+
+	log.Fatal(http.ListenAndServe(":1234", nil))
+}
