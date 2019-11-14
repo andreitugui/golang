@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+
+	"robpike.io/filter"
+)
 
 type actor struct {
 	firstName string
@@ -70,5 +75,7 @@ func main() {
 	// fmt.Printf("First list:\n %+v\n", l1)
 	// fmt.Printf("Second list:\n %+v\n", l2)
 	fmt.Printf("Third list:\n %+v\n", l3)
-
+	sort.Slice(l3, func(i, j int) bool { return l3[i].rating < l3[j].rating })
+	fmt.Printf("sorted list:\n %+v\n", l3)
+	robpike.io / filter.Choose()
 }
