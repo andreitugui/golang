@@ -65,16 +65,10 @@ func main() {
 	var l1, l2, l3 []movie
 	l1 = []movie{m1, m2, m3}
 	l2 = []movie{m4, m5, m6}
-	fmt.Println("start for")
-	for i := 0; i < len(l3); i++ {
-		// l3 = append(l3, l1[i])
-		fmt.Printf("l3 lenght: %v", len(l3))
-		fmt.Printf("\n\n\n\n")
-		fmt.Println(l3)
-
-	}
-	fmt.Printf("First list:\n %+v\n", l1)
-	fmt.Printf("Second list:\n %+v\n", l2)
+	l3 = append(l3, l1...)
+	l3 = append(l3, l2...)
+	// fmt.Printf("First list:\n %+v\n", l1)
+	// fmt.Printf("Second list:\n %+v\n", l2)
 	fmt.Printf("Third list:\n %+v\n", l3)
 
 }
