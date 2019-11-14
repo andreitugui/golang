@@ -2,9 +2,6 @@ package main
 
 import (
 	"fmt"
-	"sort"
-
-	"robpike.io/filter"
 )
 
 type actor struct {
@@ -51,7 +48,7 @@ func main() {
 	}
 	m4 = movie{
 		title:       "Doctor Sleep",
-		releaseYear: 2019,
+		releaseYear: 2015,
 		actors:      []actor{a1, a3, a6},
 		rating:      3,
 	}
@@ -68,14 +65,17 @@ func main() {
 		rating:      3,
 	}
 	var l1, l2, l3 []movie
+	var l4 []string
 	l1 = []movie{m1, m2, m3}
 	l2 = []movie{m4, m5, m6}
 	l3 = append(l3, l1...)
 	l3 = append(l3, l2...)
-	// fmt.Printf("First list:\n %+v\n", l1)
-	// fmt.Printf("Second list:\n %+v\n", l2)
-	fmt.Printf("Third list:\n %+v\n", l3)
-	sort.Slice(l3, func(i, j int) bool { return l3[i].rating < l3[j].rating })
-	fmt.Printf("sorted list:\n %+v\n", l3)
-	robpike.io / filter.Choose()
+
+	for i := 0; i < len(l3); i++ {
+		if l3[i].releaseYear == 2015 {
+			l4 = append(l4, l3[i].title)
+		} else {
+		}
+	}
+	fmt.Printf("these are movies released in 2015: %\nv", l4)
 }
