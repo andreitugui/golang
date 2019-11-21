@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 type actor struct {
@@ -65,17 +66,25 @@ func main() {
 		rating:      3,
 	}
 	var l1, l2, l3 []movie
-	var l4 []string
 	l1 = []movie{m1, m2, m3}
 	l2 = []movie{m4, m5, m6}
 	l3 = append(l3, l1...)
 	l3 = append(l3, l2...)
-
+	// for i := 0; i < len(l3); i++ {
+	// 	fmt.Printf("%v\n", l3[i].title)
+	// }
+	fmt.Println("Sort:")
+	sort.SliceStable(l3, func(i, j int) bool {
+		return l3[i].rating < l3[j].rating
+	})
 	for i := 0; i < len(l3); i++ {
-		if l3[i].releaseYear == 2015 {
-			l4 = append(l4, l3[i].title)
-		} else {
-		}
+		fmt.Printf("%v\n", l3[i].title)
 	}
-	fmt.Printf("these are movies released in 2015: %\nv", l4)
+
+	// for i := 0; i < len(l3); i++ {
+	// 	if l3[i].releaseYear == 2015 {
+	// 		fmt.Printf("%v\n", l3[i].title)
+	// 	} else {
+	// 	}
+	// }
 }
